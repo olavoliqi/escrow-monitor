@@ -71,34 +71,40 @@
     /* Cards resumo */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
       margin-bottom: 2rem;
     }
     .card {
       background: var(--bg-card);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1rem 1.25rem;
       border: 1px solid var(--cinza-borda);
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
     }
     .card-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: var(--cinza-texto);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      min-height: 2.5rem;
+      display: flex;
+      align-items: flex-end;
       margin-bottom: 0.5rem;
     }
     .card-value {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.75rem;
+      font-size: 1.35rem;
       font-weight: 700;
     }
-    .card-value.bloqueado { color: var(--vermelho); }
+    .card-value.bloqueado { color: var(--azul); }
     .card-value.desbloqueado { color: var(--verde); }
-    .card-value.transferido { color: var(--azul); }
-    .card-value.saldo {
+    .card-value.transferido { color: #7b4ef3; }
+    .card-value.saldo { color: var(--vermelho); }
+    .card-value.comprometido {
       background: linear-gradient(45deg, var(--azul), var(--rosa));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -233,7 +239,7 @@
     @media (max-width: 768px) {
       .container { padding: 1rem; }
       .cards { grid-template-columns: repeat(2, 1fr); }
-      .card-value { font-size: 1.25rem; }
+      .card-value { font-size: 1.1rem; }
       .table-wrapper { overflow-x: auto; }
       table { min-width: 700px; }
     }
@@ -254,17 +260,17 @@
       </svg>
       <div>
         <h1>Escrow Monitor</h1>
-        <span class="subtitle">Bloqueios Judiciais — CA$A$ BAHIA I</span>
+        <span class="subtitle">Bloqueios Judiciais — CASAS BAHIA I</span>
       </div>
     </div>
-    <span class="last-update">Atualizado em 23/04/2026 00:32</span>
+    <span class="last-update">Atualizado em 22/04/2026 21:57</span>
   </header>
 
   <div class="container">
     <!-- Cards resumo -->
     <div class="cards">
       <div class="card">
-        <div class="card-label">Total Bloqueado</div>
+        <div class="card-label">Valor Histórico Bloqueado</div>
         <div class="card-value bloqueado">R$ 4.103.140,02</div>
         <div class="card-sub">48 processos</div>
       </div>
@@ -280,6 +286,10 @@
         <div class="card-label">Saldo Bloqueado Atual</div>
         <div class="card-value saldo">R$ 1.236.092,43</div>
         <div class="card-sub">16 processos ativos</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Total Comprometido (Bloqueado + Transferido)</div>
+        <div class="card-value comprometido">R$ 3.205.314,41</div>
       </div>
     </div>
 
